@@ -157,7 +157,7 @@ namespace CS11thGradeItay
             Console.WriteLine(Bank.Add(bAcc2));
             Console.WriteLine(Bank.Add(bAcc3));
             Console.WriteLine(Bank.Add(bAcc4));
-            bAcc2.Deposit(1234567);
+            bAcc2.Deposit(12345);
             Console.WriteLine("=== Account Details ===");
             Console.WriteLine(Bank.AccountDetails(bAcc2.GetAccountNum()));
             Console.WriteLine("=== Accounts Count ===");

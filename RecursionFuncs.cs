@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CS11thGradeItay
@@ -118,6 +120,55 @@ namespace CS11thGradeItay
                 return RecFunc13_A(1);
             return RecFunc13_A(n) + RecFunc13_B(n - 1);
         }
+        private static int Max(int[] arr, int i)
+        {
+            if (i == arr.Length - 1)
+                return arr[i];
+            return Math.Max(arr[i], Max(arr, i + 1));
+        }
+        public static int Max(int[] arr)
+        {
+            return Max(arr, 0) ;
+        }
+        public static int RecFunc14(int[] arr, int i)
+        {
+            if (i == arr.Length - 1)
+                return arr[i];
+            return RecFunc14(arr, i + 1) + arr[i];
+        }
+        public static int RecFunc15(int[] arr, int i)
+        {
+            if (i == arr.Length - 1)
+            return arr[i];
+            if (arr[i] > 0)
+                return RecFunc15(arr, i + 1) + 1;
+            return RecFunc15(arr, i + 1);
+        }
+        public static int RecFunc16(int[] arr, int n, int i)
+        {
+            if (i == arr.Length)
+                return -1;
+            if (arr[i] == n)
+                return i;
+            return RecFunc16(arr, n, i + 1);   
+        }
+        public static bool RecFunc17(int[] arr, int i)
+        {
+            if (i == arr.Length - 1)
+                return true;
+            if (arr[i] > arr[i + 1])
+                return false;
+            return RecFunc17(arr, i + 1);
+        }
+        public static bool RecFunc18(int[] arr, int i)
+        {
+            if (i == arr.Length - 1)
+                return true;
+            if (RecFunc8(i, 1))
+                return false;
+            return RecFunc18(arr, i + 1);
+        }
+
         public static void UnitTest()
         {
             //Console.WriteLine(RecFunc1(6)); 
@@ -126,14 +177,24 @@ namespace CS11thGradeItay
             //Console.WriteLine(RecFunc4(354535));
             //Console.WriteLine(RecFunc5(-10, 3));
             //Console.WriteLine(RecFunc6(-17, -3));
-            //Console.WriteLine(RecFunc7(-18, -3));
+            //Console.WriteLine(RecFunc7(-18, -3)); 
             //Console.WriteLine(RecFunc8(1, 1));
             //Console.WriteLine(RecFunc9(1557235));
             //Console.WriteLine(RecFunc10(10));
             //Console.WriteLine(RecFunc11(10, 1));
             //Console.WriteLine(RecFunc12(5, 11, 1));
             //Console.WriteLine(RecFunc13_A(6));
-            Console.WriteLine(RecFunc13_B(5));
+            //Console.WriteLine(RecFunc13_B(5));
+            int[] arr1 = { 5, 2, 3, 5, 529, 5199, 17};
+            //Console.WriteLine(Max(arr, 0));
+            //Console.WriteLine(RecFunc14(arr, 0));
+            int[] arr2 = { -5, 2, 3, -5, 529, -5199, 17, 0 };
+            //Console.WriteLine(RecFunc15(arr2, 0));
+            //Console.WriteLine(RecFunc16(arr, -5, 0));
+            int[] arr3 = { 9, 10, 50, 100, 200, 250 };
+            //Console.WriteLine(RecFunc17(arr3, 0));
+            int[] arr4 = { 4, 8, 25, 70, 90};
+            Console.WriteLine(RecFunc18(arr4, 0));
         }
     }
 }
