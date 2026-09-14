@@ -162,11 +162,44 @@ namespace CS11thGradeItay
         }
         public static bool RecFunc18(int[] arr, int i)
         {
-            if (i == arr.Length - 1)
+            if (i == arr.Length)
                 return true;
-            if (RecFunc8(i, 1))
+            if (RecFunc8(arr[i], 1))
                 return false;
             return RecFunc18(arr, i + 1);
+        }
+        public static bool CheckRow(int[,] mat, int num, int row, int col)
+        {
+            if (col >= mat.GetLength(1))
+                return false;
+            if (mat[row, col] == num)
+                return true;
+            return CheckRow(mat, num, row, col + 1);
+        }
+        private static int RecFunc19(int[,] mat, int num, int row)
+        {
+            if (row < 0)
+                return 0;
+            if (CheckRow(mat, num, row, 0))
+                return RecFunc19(mat, num, row - 1) + 1;
+            return RecFunc19(mat, num, row - 1);
+        }
+        public static bool RecFunc20(int[] arr)
+        {
+            Random rnd = new Random();
+            int I = rnd.Next(0, arr.Length);
+            int N = rnd.Next(0, arr.Length);
+            int min = Math.Min(I, N);
+            int max = Math.Max(I, N);
+            return HelperFunc(arr, min, max);
+        }
+        private static bool HelperFunc(int[] arr, int left, int right)
+        {
+            if (left >= right)
+                return true;
+            if(arr[left] != arr[right])
+                return false;
+            return HelperFunc(arr, left + 1, right - 1);
         }
 
         public static void UnitTest()
@@ -193,8 +226,20 @@ namespace CS11thGradeItay
             //Console.WriteLine(RecFunc16(arr, -5, 0));
             int[] arr3 = { 9, 10, 50, 100, 200, 250 };
             //Console.WriteLine(RecFunc17(arr3, 0));
-            int[] arr4 = { 4, 8, 25, 70, 90};
-            Console.WriteLine(RecFunc18(arr4, 0));
+            int[] arr4 = { 4, 8, 25, 70, 5, 90};
+            //Console.WriteLine(RecFunc18(arr4, 0));
+            int[,] mat = {
+                { 1, 2, 7, 4 },
+                { 5, 6, 8, 9 },
+                { 7, 1, 3, 2 }
+            };
+            //Console.WriteLine(RecFunc19(mat, 7, mat.GetLength(0) - 1));
+            int[] arr5 = { 7, 4, 2, 4, 5 };
+            int[] arr6 = { 7, 7, 7, 7, 7 };
+            int[] arr7 = { 1, 4, 2, 3, 1 };
+            Console.WriteLine(RecFunc20(arr5));
+            Console.WriteLine(RecFunc20(arr6));
+            Console.WriteLine(RecFunc20(arr7));
         }
     }
 }
