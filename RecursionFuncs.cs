@@ -142,11 +142,11 @@ namespace CS11thGradeItay
         }
         public static int RecFunc15(int[] arr, int i)
         {
-            if (i == arr.Length - 1)
-            return arr[i];
+            if (i == 0)
+            return (arr[i] > 0) ? 1 : 0;
             if (arr[i] > 0)
-                return RecFunc15(arr, i + 1) + 1;
-            return RecFunc15(arr, i + 1);
+                return RecFunc15(arr, i - 1) + 1;
+            return RecFunc15(arr, i - 1);
         }
         public static int RecFunc16(int[] arr, int n, int i)
         {
@@ -215,23 +215,21 @@ namespace CS11thGradeItay
         }
         public static string RecFunc22(string str)
         {
-            return HelperFunc22(str, 1);
+            return HelperFunc22(str, 0);
         }
         private static string HelperFunc22(string str, int i)
         {
             if (i == str.Length)
                 return "";
-            if (i % 3 == 0)
-                return HelperFunc22(str, i + 1) + '*';
-            return HelperFunc22(str, i + 1);
+            if ((i+1) % 3 == 0 && i < str.Length - 1)
+                return str[i] + "*" + HelperFunc22(str, i + 1);
+            return str[i] + HelperFunc22(str, i + 1);
         }
         public static string RecFunc23(string str, int i)
         {
-            string newStr = "";
             if (i == str.Length)
                 return "";
-            newStr += str[str.Length - i - 1];
-            return RecFunc23(str, i + 1);
+            return str[str.Length - i - 1] + RecFunc23(str, i + 1);
         }
         public static void RecFunc24(char ch1, char ch2)
         {
