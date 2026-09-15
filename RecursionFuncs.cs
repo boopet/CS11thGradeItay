@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace CS11thGradeItay
 {
@@ -201,7 +205,38 @@ namespace CS11thGradeItay
                 return false;
             return HelperFunc(arr, left + 1, right - 1);
         }
-
+        public static int RecFunc21(string str, int i)
+        {
+            if (i == str.Length)
+                return 0;
+            if (str[i] >= 'a' && str[i] <= 'z')
+            return RecFunc21(str, i + 1) + 1;
+            return RecFunc21(str, i + 1);
+        }
+        public static string RecFunc22(string str)
+        {
+            return HelperFunc22(str, 1);
+        }
+        private static string HelperFunc22(string str, int i)
+        {
+            if (i == str.Length)
+                return "";
+            if (i % 3 == 0)
+                return HelperFunc22(str, i + 1) + '*';
+            return HelperFunc22(str, i + 1);
+        }
+        public static string RecFunc23(string str, int i)
+        {
+            string newStr = "";
+            if (i == str.Length)
+                return "";
+            newStr += str[str.Length - i - 1];
+            return RecFunc23(str, i + 1);
+        }
+        public static void RecFunc24(char ch1, char ch2)
+        {
+           
+        }
         public static void UnitTest()
         {
             //Console.WriteLine(RecFunc1(6)); 
@@ -237,9 +272,13 @@ namespace CS11thGradeItay
             int[] arr5 = { 7, 4, 2, 4, 5 };
             int[] arr6 = { 7, 7, 7, 7, 7 };
             int[] arr7 = { 1, 4, 2, 3, 1 };
-            Console.WriteLine(RecFunc20(arr5));
-            Console.WriteLine(RecFunc20(arr6));
-            Console.WriteLine(RecFunc20(arr7));
+            //Console.WriteLine(RecFunc20(arr5));
+            //Console.WriteLine(RecFunc20(arr6));
+            //Console.WriteLine(RecFunc20(arr7));
+            //Console.WriteLine(RecFunc21("aLabDzt", 0));
+            //Console.WriteLine(RecFunc22("AjmsATo"));
+            Console.WriteLine(RecFunc23("bla", 0));
+
         }
     }
 }
