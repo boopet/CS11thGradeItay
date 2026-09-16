@@ -233,7 +233,12 @@ namespace CS11thGradeItay
         }
         public static void RecFunc24(char ch1, char ch2)
         {
-           
+            if (ch1 <= ch2)
+            {
+                Console.Write(ch1 + "");
+                RecFunc24((char)(ch1 + 1), ch2);
+            }
+
         }
         public static void UnitTest()
         {
@@ -275,7 +280,8 @@ namespace CS11thGradeItay
             //Console.WriteLine(RecFunc20(arr7));
             //Console.WriteLine(RecFunc21("aLabDzt", 0));
             //Console.WriteLine(RecFunc22("AjmsATo"));
-            Console.WriteLine(RecFunc23("bla", 0));
+            //Console.WriteLine(RecFunc23("bla", 0));
+            RecFunc24('a', 'z');
 
         }
     }
