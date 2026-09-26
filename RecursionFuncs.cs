@@ -252,7 +252,112 @@ namespace CS11thGradeItay
         }
         public static void RecFunc26(int num)
         {
-           
+            if (num > 0)
+            {
+                if((num % 10) % 2 == 0)
+                {
+                    Console.WriteLine(num % 10);
+                }
+                RecFunc26(num / 10);
+            }
+        }
+        public static void RecFunc27(int row, int col)
+        {
+            if ( row <= 10)
+            {
+                Console.Write(row * col + "\t");
+                if (col == 10)
+                {
+                    Console.WriteLine();
+                    RecFunc27(row + 1, 1);
+                }
+                else
+                RecFunc27(row, col + 1);
+            }
+        }
+        public static void RecFunc28(int a1, int d, int n)
+        {
+            if (n > 0)
+            {
+                Console.Write(a1 + " ");
+                RecFunc28(a1 + d, d, n - 1);
+            }
+        }
+        public static void RecFunc29(int startN, int d, int n)
+        {
+            if(n > 0)
+            {
+                Console.Write(startN + " ");
+                RecFunc29(startN + d, d + 1, n - 1);
+            }
+        }
+        public static void RecFunc30(int startN, int n, bool subtract)
+        {
+            if (n > 0)
+            {
+                if (subtract)
+                {
+                    Console.Write(startN + " ");
+                    RecFunc30(startN - 1, n - 1, false);
+                }
+                else
+                {
+                    Console.Write(startN + " ");
+                    RecFunc30(startN  + 2, n - 1, true);
+                }
+            }
+        }
+        public static void RecFunc31(int[] arr, int i)
+        {
+            if(i < arr.Length)
+            {
+                if (i % 2 == 0)
+                Console.Write(arr[i] + " ");
+                RecFunc31(arr, i + 1);
+            }
+        }
+        public static void RecFunc32(int[] arr, int i)
+        {
+            if(i < arr.Length - 1)
+            {
+                if (arr[i] < arr[i + 1])
+                    Console.Write(arr[i] + " ");
+                RecFunc32(arr, i + 1);
+            }
+        }
+        public static void RecFunc33(int[,] mat, int row, int col)
+        {
+            if(row < mat.GetLength(0) && col < mat.GetLength(1))
+            {
+                Console.Write(mat[row, col] + " ");
+                if (col == mat.GetLength(1) - 1)
+                {
+                    Console.WriteLine();
+                    RecFunc33(mat, row + 1, 0);
+                }
+                else
+                {
+                    RecFunc33(mat, row, col + 1);
+                }
+            }
+        }
+        public static void RecFunc34(int[,] mat, int row)
+        {
+            if(row < mat.GetLength(0))
+            {
+                Console.Write(RecFunc34Helper(mat, row, 0, mat[row, 0]) + " ");
+                RecFunc34(mat, row + 1);
+            }
+        }
+        public static int RecFunc34Helper(int[,] mat, int row, int col, int max)
+        {
+            if (col < mat.GetLength(1))
+            {
+                if (mat[row, col] > max)
+                    max = mat[row, col];
+                return RecFunc34Helper(mat, row, col + 1, max);
+            }
+            return max;
         }
         public static void UnitTest()
         {
@@ -297,8 +402,16 @@ namespace CS11thGradeItay
             //Console.WriteLine(RecFunc23("bla", 0));
             //RecFunc24('b', 't');
             //RecFunc25(10, 10);
-
-
+            //RecFunc26(24);
+            //RecFunc27(1, 1);
+            //RecFunc28(3, 4, 5);
+            //RecFunc29(0, 1, 10);
+            //RecFunc30(4, 7, true);
+            int[] arr8 = { 8, 6, 4, 1, 7, 3, 1004, 20 };
+            //RecFunc31(arr8, 0);
+            //RecFunc32(arr8, 0);
+            //RecFunc33(mat, 0, 0);
+            RecFunc34(mat, 0);
         }
     }
 }
