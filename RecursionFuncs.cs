@@ -340,7 +340,7 @@ namespace CS11thGradeItay
                     RecFunc33(mat, row, col + 1);
                 }
             }
-        }
+        }           
         public static void RecFunc34(int[,] mat, int row)
         {
             if(row < mat.GetLength(0))
@@ -411,7 +411,7 @@ namespace CS11thGradeItay
             //RecFunc31(arr8, 0);
             //RecFunc32(arr8, 0);
             //RecFunc33(mat, 0, 0);
-            RecFunc34(mat, 0);
+            //RecFunc34(mat, 0);
         }
     }
 }
