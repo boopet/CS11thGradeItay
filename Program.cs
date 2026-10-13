@@ -5,7 +5,8 @@
         static void Main(string[] args)
         {
             //RecursionFuncs.UnitTest();
-            UnitTest.Test1();
+            //UnitTest.Test1();
+            UnitTest.Run();
         }
 
     }
