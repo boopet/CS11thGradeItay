@@ -78,9 +78,9 @@ namespace CS11thGradeItay
             int count = 0;
             while (lst != null)
             {
-                if(lst.GetValue() % 2 == 1)
+                if (lst.GetValue() % 2 == 1)
                 {
-                    count++;                                                                                            
+                    count++;
                 }
                 lst = lst.GetNext();
             }
@@ -114,7 +114,7 @@ namespace CS11thGradeItay
         }
         public static bool IsInNode(IntNode lst, int n)
         {
-            while(lst != null)
+            while (lst != null)
             {
                 if (n == lst.GetValue())
                     return true;
@@ -131,6 +131,17 @@ namespace CS11thGradeItay
                 lst = lst.GetNext();
             }
             return true;
+        }
+        public static int CountValue(IntNode lst, int n)
+        {
+            int count = 0;
+            while ( lst != null)
+            {
+                if (lst.GetValue() == n)
+                    count++;
+                lst = lst.GetNext();
+            }
+            return count;
         }
         //IntNode Josh = null;
         //for(int i = arr.Length - 1; i >= 0; i--)
