@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            RecursionFuncs.UnitTest();
+            //BankServices.UnitTest();
+            //RecursionFuncs.UnitTest();
+            UnitTest.Run();
         }
 
     }
