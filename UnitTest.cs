@@ -222,6 +222,15 @@ namespace CS11thGradeItay
             }
             return head;
         }
+        public static void PrintBigger(IntNode lst)
+        {
+            IntNode p = lst; 
+            while (lst.GetNext() != null)
+            {
+                if (lst.GetNext().GetValue() > lst.GetValue())
+                    lst.GetValue();
+            }
+        }
         //IntNode Josh = null;
         //for(int i = arr.Length - 1; i >= 0; i--)
         //   josh = new IntNode(arr[i], josh)
